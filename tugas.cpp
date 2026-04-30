@@ -3,10 +3,9 @@
 using namespace std;
 
 int nilaiTerbesar(vector<int> &nilai, int n) {
-    // basis
     if (n == 1)
         return nilai[0];
-    // rekursif
+
     int maxSebelumnya = nilaiTerbesar(nilai, n - 1);
 
     if (nilai[n - 1] > maxSebelumnya)
@@ -16,7 +15,22 @@ int nilaiTerbesar(vector<int> &nilai, int n) {
 }
 
 int main() {
-    vector<int> data = {70, 88, 92, 65};
-    cout << "Nilai terbesar = " << nilaiTerbesar(data, data.size()) << endl;
-    return 0;
+    int n;
+    cout << "Masukkan jumlah data: ";
+    cin >> n;
+
+    vector<int> data(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> data[i];
+    }
+    cout << "{";
+    for (int i = 0; i < n; i++) {
+        cout << data[i];
+        if (i != n - 1)
+            cout << ", ";
+    }
+    cout << "}" << endl;
+
+    cout << "Nilai terbesar = " << nilaiTerbesar(data, n) << endl;
 }
